@@ -237,6 +237,22 @@ body {
   width: 100%;
 }
 
+.photo-grid img {
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.05); /* hover effect */
+}
+
+.photo-grid img:active {
+  transform: scale(1.5); /* click to zoom */
+  z-index: 999;
+  position: relative;
+}
+
+
 
 @media (max-width: 768px) {
   .section video {
