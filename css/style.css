@@ -295,7 +295,14 @@ body {
     order: 2;
     gap: 5px;
   }
+  #menu-btn,
+  #menu-btn span {
+  	font-size: 0.75rem;
+ 	text-decoration: none;  /* remove underline */
+ 	color: #fff;            /* keep text white */
+	}
   #menu-btn span {
     font-size: 0.75rem;     /* smaller text for phones */
+    text-decoration: none;
   }
 }
