@@ -236,6 +236,18 @@ body {
 /* Responsive */
 /* Mobile Styles */
 @media screen and (max-width: 768px) {
+  .header {
+    padding: 25px 15px;  /* reduce padding */
+  }
+
+  .header h1 {
+    font-size: 1.8rem;   /* smaller title for phones */
+  }
+
+  .header p {
+    font-size: 0.65rem;  /* smaller subtitle */
+  }
+  
   #menu-items {
     position: fixed !important;
     top: 0 !important;
@@ -272,3 +284,4 @@ body {
     order: 2;
   }
 }
+
