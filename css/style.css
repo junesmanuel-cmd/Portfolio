@@ -86,12 +86,22 @@ body {
 
 /* Menu Button (right side) */
 #menu-btn {
-  display: inline-block;
+  display: flex;             /* change from inline-block to flex */
+  align-items: center;       /* vertically center icon and text */
+  gap: 8px;                  /* space between icon and text */
   cursor: pointer;
   z-index: 1001;
   transition: transform 0.2s ease;
   order: 2; /* ensures it stays last in nav flex */
 }
+
+#menu-btn span {
+  color: #fff;               /* text color */
+  font-weight: 600;          /* bold text */
+  font-size: 1rem;           /* size of the "Menu" text */
+  user-select: none;         /* prevents text selection */
+}
+
 
 #menu-btn img {
   display: block;
@@ -283,5 +293,9 @@ body {
   /* Menu button */
   #menu-btn {
     order: 2;
+    gap: 5px;
+  }
+  #menu-btn span {
+    font-size: 0.75rem;     /* smaller text for phones */
   }
 }
