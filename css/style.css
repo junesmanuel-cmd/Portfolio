@@ -227,6 +227,7 @@ body {
   width: 100%;
 }
 
+
 @media (max-width: 768px) {
   .section video {
     width: 100%;
@@ -247,7 +248,7 @@ body {
   .header p {
     font-size: 0.65rem;  /* smaller subtitle */
   }
-  
+	
   #menu-items {
     position: fixed !important;
     top: 0 !important;
@@ -284,4 +285,3 @@ body {
     order: 2;
   }
 }
-
