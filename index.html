@@ -3,28 +3,14 @@
 <head>
 <!-- Google tag (gtag.js) - Debug Ready -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-91K72XJJXW"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-91K72XJJXW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  // Explicit page view send
-  gtag('config', 'G-91K72XJJXW', {
-    'send_page_view': true
-  });
-
-  // Debug: log all events to console
-  const originalPush = dataLayer.push;
-  dataLayer.push = function() {
-    console.log('GA4 dataLayer push:', arguments);
-    return originalPush.apply(this, arguments);
-  }
-
-  // Optional: send a test event to see it instantly in DebugView
-  gtag('event', 'debug_event', {
-    'event_category': 'test',
-    'event_label': 'Portfolio Test Event'
-  });
+  gtag('config', 'G-91K72XJJXW');
 </script>
 
 
@@ -297,6 +283,7 @@
 <script src="js/script.js"></script>
 </body>
 </html>
+
 
 
 
