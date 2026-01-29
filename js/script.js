@@ -45,11 +45,54 @@ navButtons.forEach(btn => {
   });
 });
 
-// Optional: open section based on URL hash when page loads
-window.addEventListener("load", () => {
-  const hash = window.location.hash.replace("#", "");
-  if (hash) {
-    const validSection = document.getElementById(hash);
-    if (validSection) showSection(hash);
+
+//slider functionality for photo galleries and button for desktop
+document.querySelectorAll('.photo-slider').forEach(slider => {
+  const slides = slider.querySelectorAll('.slide');
+  const prevBtn = slider.querySelector('.slide-btn.prev');
+  const nextBtn = slider.querySelector('.slide-btn.next');
+
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
   }
+
+  // Desktop button clicks
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    });
+  }
+
+  // Mobile swipe
+  let startX = 0;
+  let endX = 0;
+
+  slider.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchmove', e => {
+    endX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener('touchend', () => {
+    if (startX - endX > 50) { // swipe left
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    } else if (endX - startX > 50) { // swipe right
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  });
 });
+
+
