@@ -73,7 +73,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 20px;
+  padding: 4px 25px; /* increased menu backround size */
   z-index: 9999;
   box-shadow: 0 2px 8px rgba(0,0,0,0.5);
 }
@@ -130,18 +130,36 @@ body {
 }
 
 /* Nav menu container */
+/* Desktop Nav menu container */
+/* Desktop Nav menu container */
+/* Desktop Nav menu container (centered) */
 #menu-items {
-  display: none; /* hidden by default */
+  position: absolute;          /* absolute relative to .nav */
+  top: 100%;                  /* right below the nav bar */
+  left: 50%;                  /* start from center */
+  transform: translate(-50%, -20px); /* center and slightly above */
+  display: flex;
   gap: 15px;
   align-items: center;
-  position: relative;
+  background-color: var(--dark3);
+  border-radius: 8px;
+  padding: 12px 35px;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1), 
+              opacity 0.5s ease;
   z-index: 9999;
-  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Expanded menu */
 #menu-items.show {
-  display: flex;
+  transform: translate(-50%, 0); /* slides down and stays centered */
+  opacity: 1;
+  pointer-events: auto;
 }
+
+
+
 
 /* ===============================
    Sections
@@ -305,7 +323,7 @@ body {
 }
 
 /* ===============================
-   Responsive: Mobile
+   Responsive: Mobile Fullscreen Menu with Smooth Slide
 =============================== */
 @media screen and (max-width: 768px) {
 
@@ -317,7 +335,7 @@ body {
   /* Mobile menu button */
   #menu-btn { display: flex; }
 
-  /* Fullscreen mobile overlay */
+  /* Fullscreen overlay menu */
   #menu-items {
     position: fixed !important;
     top: 0;
@@ -330,26 +348,59 @@ body {
     align-items: center !important;
     gap: 20px !important;
     background-color: rgba(18,18,18,0.95);
+    backdrop-filter: blur(6px);
     pointer-events: none;
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(-100%);
     z-index: 10000 !important;
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transition: transform 0.5s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease;
   }
 
+  /* Menu open state */
   #menu-items.show {
     pointer-events: auto;
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 
+  /* Nav buttons inside menu */
   #menu-items .nav-btn {
     display: block;
-    padding: 12px 0;
-    font-size: 1.1rem;
+    padding: 14px 0;
+    font-size: 1.2rem;
     border-radius: 8px;
-    width: 200px;
+    width: 220px;
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+
+  /* When menu is open, make buttons visible with stagger */
+  #menu-items.show .nav-btn:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s;
+  }
+  #menu-items.show .nav-btn:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.2s;
+  }
+  #menu-items.show .nav-btn:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.3s;
+  }
+  #menu-items.show .nav-btn:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.4s;
+  }
+  #menu-items.show .nav-btn:nth-child(5) {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.5s;
   }
 
   .slide-btn { display: none; }
