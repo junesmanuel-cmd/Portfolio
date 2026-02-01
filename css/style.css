@@ -215,18 +215,24 @@ h6 { font-size: 1rem; }
 	position: fixed;
 	top: 0;
 	left: 50%;
-	transform: translateX(-50%); /* centers horizontally */
+	transform: translateX(-50%); /* horizontal center */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 15px;
-	width: max-content;
+
+	/* Prevent overflow */
+	width: 90%;          /* take up max 90% of viewport width */
+	max-width: 1200px;   /* optional: limit width on very wide screens */
 	padding: 10px 20px;
+	box-sizing: border-box;
+
 	background-color: transparent;
 	opacity: 1;
 	pointer-events: auto;
 	z-index: 9998;
 }
+
 
 
 #menu-items.hide { display: none; pointer-events: none; }
@@ -238,7 +244,7 @@ h6 { font-size: 1rem; }
 	display: none;
 	background-color: var(--dark2);
 	margin: 25px auto;
-	padding: 30px 25px;
+    padding: 20px 15px;    /* smaller padding for narrow screens */
 	border-radius: 12px;
 	box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
 	max-width: 900px;
@@ -644,16 +650,22 @@ h6 { font-size: 1rem; }
     transition: opacity 0.4s ease;
   }
 
-  #menu-items.show {
+#menu-items.show {
     opacity: 1;
     pointer-events: auto;
     display: flex !important;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* or flex-start if you want top-aligned */
     align-items: center;
-    left: 0; /* ensure fully aligned */
-    width: 100%; /* full width */
-  }
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100dvh;
+    padding: env(safe-area-inset-top) 0 env(safe-area-inset-bottom);
+    background-color: rgba(18,18,18,0.95);
+    backdrop-filter: blur(6px);
+    z-index: 10000;
+}
 
   #menu-items .nav-btn {
     display: block;
@@ -694,6 +706,14 @@ h6 { font-size: 1rem; }
 
 	.photo-slider .slide-btn { width: 40px; height: 40px; font-size: 1.5rem; }
 
+.section {
+    padding: 20px 15px;    /* smaller padding for narrow screens */
+    max-width: 100%;       /* take full width */
+    border-radius: 10px;   /* slightly smaller radius for mobile */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    margin: 0 auto 15px auto; /* top margin 0, bottom margin for spacing */
+  }
+  
   .update-text {
     width: 100%;
     max-width: 100%;
