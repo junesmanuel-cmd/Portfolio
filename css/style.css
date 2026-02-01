@@ -697,7 +697,7 @@ h6 {
 		justify-content: center;
 		align-items: center;
 		text-align: center;
-		gap: 16px;
+		gap: 15px;
 		margin: 0 !important;
 		padding: 0;
 		background-color: rgba(18, 18, 18, 0.95);
@@ -759,6 +759,19 @@ h6 {
 	.slide-btn {
 		display: none;
 	}
+	#menu-items a,
+#menu-items a:link,
+#menu-items a:visited,
+#menu-items a:hover,
+#menu-items a:active,
+#menu-items a:focus,
+#menu-items .nav-btn,
+#menu-items .nav-btn:hover,
+#menu-items .nav-btn:focus {
+    text-decoration: none !important; /* removes underline in all states */
+    color: inherit;                   /* optional: keep color same */
+}
+
 
 	/* ===============================
      Sections
@@ -911,4 +924,99 @@ h6 {
 	    margin-bottom: 6px;       /* space below each list item */
 	    color: #ddd;              /* optional color */
 	}
+	
+	/* ===============================
+   Feedback Form & Popup – Mobile
+=============================== */
+	.feedback-form {
+    gap: 12px;
+    width: 95%;
+    margin: 20px auto 0 auto;
+  }
+
+  .feedback-form label {
+    font-size: 0.9rem;
+  }
+
+  .feedback-form input,
+  .feedback-form textarea {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .feedback-form textarea {
+    min-height: 100px;
+  }
+
+  .feedback-form button[type="submit"] {
+    padding: 12px 18px;
+    font-size: 0.95rem;
+  }
+
+  .feedback-popup {
+    padding: 25px 20px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    min-width: unset;
+  }
+
+  .feedback-popup-close {
+    top: 8px;
+    right: 8px;
+    width: 43px;
+    height: 43px;
+    font-size: 1.1rem;
+  }
+	  /* Feedback popup text */
+	.feedback-popup p,
+	.feedback-popup span,
+	.feedback-popup strong,
+	.feedback-popup em {
+	    font-size: 0.9rem; /* adjust this value as needed */
+	    line-height: 1.4;  /* optional, for better readability */
+	    color: var(--white1); /* optional, matches popup theme */
+	}
+	/* ===============================
+   Media Container – Mobile
+=============================== */
+.media-container,
+.photo-slider {
+    width: auto;           /* almost full width */
+    max-width: 100%;
+    height: 250px;        /* smaller height for mobile */
+    margin: 15px auto;    /* smaller margin */
+    border-radius: 10px;  /* slightly smaller radius */
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-container img,
+.media-container video,
+.photo-slider .slide img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+  /* ===============================
+     Header – Mobile
+  ================================ */
+  .header {
+    padding: 15px 10px;
+    border-radius: 12px; /* add this */
+  }
+
+  /* ===============================
+     Footer – Mobile
+  ================================ */
+  .footer {
+    border-radius: 12px; /* add this */
+    padding: 20px 10px;
+  }
+	
 }
