@@ -600,6 +600,34 @@ h6 {
 .footer p {
 	font-size: 0.9rem;
 }
+.footer h2 {
+  color: var(--white1);      /* make it visible */
+  font-size: 1rem;            /* adjust size */
+              /* spacing from music player */
+  text-align: center;
+  font-weight: 500;
+}
+.footer .music-player {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.footer .music-player button {
+  background-color: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.footer .music-player button:hover {
+  transform: scale(1.05);
+  background-color: var(--accent-hover);
+}
 
 /* ===============================
    Update Text
@@ -1020,3 +1048,6 @@ h6 {
   }
 	
 }
+  /* ===============================
+     MOBILE MUSIC STYLLLLLLLLEEEEEEEE
+  ================================ */
